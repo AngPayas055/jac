@@ -1,0 +1,27 @@
+h1 {
+    font-size: 38px;
+    line-height: 44px;
+    font-weight: 400;
+}
+h2 {
+    font-size: 31px;
+    line-height: 36px;
+    font-weight: 400;
+}
+h3 {
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+}
+p{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #848999;
+}
+a{
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #848999;
+}

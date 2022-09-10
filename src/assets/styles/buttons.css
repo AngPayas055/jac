@@ -1,3 +1,28 @@
+.btn{
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 12px 27px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #ffffff;
+    background: #6D7280;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    -webkit-transition: ease-out 0.5s;
+    -moz-transition: ease-out 0.5s;
+}
+.btn:hover{
+    filter: brightness(115%)
+}
+.btn-medium{
+    padding: 8px 20px;
+}
+
 .btn-primary{
     background-color: blue;
 }
