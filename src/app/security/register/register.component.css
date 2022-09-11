@@ -1,0 +1,32 @@
+.card-container{
+    min-width: 300px;
+    max-width:350px;    
+    /* width: 100%; */
+    padding:20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.bottom-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+::ng-deep .mat-form-field .mat-input-element {
+    color: #fff;    
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus{
+  border: none;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  -webkit-box-shadow: 0 0 0px 1000px #3F424C inset;
+  box-shadow: 0 0 0px 1000px #3F424C inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+@media screen and (max-width: 350px){
+    .card-container{
+    min-width: 250px;
+}
+ }

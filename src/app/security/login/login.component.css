@@ -6,6 +6,12 @@
     margin-top: 10px;
     border-radius: 10px;
 }
+.bottom-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
 ::ng-deep .mat-form-field .mat-input-element {
     color: #fff;    
 }
