@@ -19,11 +19,13 @@ import { MatInputModule } from '@angular/material/input';
 // Components
 import { SecurityComponent } from './security.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     SecurityComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
