@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './landing/home/home.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule  } from '@angular/common/http';
 // import { SecurityComponent } from './security/security.component';
 // import { LoginComponent } from './security/login/login.component';
 
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
