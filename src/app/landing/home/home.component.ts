@@ -19,23 +19,6 @@ export class HomeComponent implements OnInit {
   }
   productData: ProductModel[] = [];
 
-  // getproducts(): void {
-  //   this.productData = [];
-
-  //   this.productService.getProducts().subscribe(
-  //     data => {
-  //       if (data.length > 0) {
-  //         let products: ProductModel[] = [];
-          
-  //         for(var i=0;i<this.productData.length;i++) {
-  //           if(i==0) {
-  //             products.push(this.productData[i]);
-  //           }
-  //         }
-  //       }
-  //     }
-  //   );  
-  // }
   getProducts() {
     this.productService.getProducts().subscribe(data => {
       data.map((value, index) => {
