@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms';
 // Router Modules
 import { SecurityRoutingModule } from './security-routing.module';
 
@@ -35,7 +36,8 @@ import { RegisterComponent } from './register/register.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
     // FlexLayoutModule
   ]
 })

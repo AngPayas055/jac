@@ -1,15 +1,34 @@
 <div class="card-container bg-dark">
-    <form>
+    <form (ngSubmit)="login()">
         <h4 class="light">LOGIN</h4>
         <mat-form-field appearance="fill" style="width:100%">
             <mat-label>Username</mat-label>
-            <input matInput maxlength="100" placeholder="Enter your username" class="light">
+            <input
+                [(ngModel)]="userLoginModel.email"
+                (ngModelChange)="userLoginModel.email = $event.toLowerCase()"
+                [ngModelOptions]="{ standalone: true }"
+                matInput
+                #text_username
+                placeholder="ID" 
+                matInput 
+                maxlength="100" 
+                placeholder="Enter your username" 
+                class="light">
         </mat-form-field> 
         <mat-form-field appearance="fill" style="width:100%">
             <mat-label>Password</mat-label>
-            <input type="password" matInput maxlength="100" placeholder="Enter your password">
+            <input
+                type="password"
+                [(ngModel)]="userLoginModel.password"
+                [ngModelOptions]="{ standalone: true }"
+                matInput
+                #text_password 
+                type="password" 
+                matInput 
+                maxlength="100" 
+                placeholder="Enter your password">
         </mat-form-field>
-        <button href="" class="btn full-width bg-green">LOG IN</button>
+        <button type="submit" mat-flat-button id="buttonLogin" href="" class="btn full-width bg-green">LOG IN</button>
         <div class="bottom-items">            
             <a href="" class="lh-50">Forggot password ?</a>
             <a href="" routerLink="/security/register">Register</a>
