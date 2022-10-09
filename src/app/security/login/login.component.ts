@@ -52,13 +52,13 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/modules/dashboard']);
               }, 500);
             }
-          if (data[0]){
-            console.log(data[0])
-            this.toastr.success("Login successful.")
+          // if (data[0]){
+          //   console.log(data[0])
+          //   this.toastr.success("Login successful.")
             // setTimeout(() => {
             //   this.router.navigate(['/customer']);
             // }, 500);
-          }
+          // }
           else {
             this.toastr.warning("Invalid email and password.")
 
