@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AppSettings } from '../settings/app.settings';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class UserService {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
+    private toastr: ToastrService,
     ) { 
       this.getCurrentUser.emit(localStorage.getItem('email'));
     }
@@ -49,7 +51,7 @@ export class UserService {
       return new Observable(observer => {
         let options: any = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token') }) };
         console.log(options)
-        this.httpClient.post(this.apiURI + "/logout", options).subscribe(
+        this.httpClient.get(this.apiURI + "/logout", options).subscribe(
           data => {
             console.log(data)
             observer.next(data);
@@ -70,6 +72,14 @@ export class UserService {
             observer.complete();
           }
         );
+        
+        
+        this.toastr.success("Logged Out")
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 500);
+        
+
       });
   }
 
