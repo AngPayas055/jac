@@ -1,5 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { UserLoginModel } from '../../app/models/user-login.model';
+import { Register } from '../../app/models/register.model';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AppSettings } from '../settings/app.settings';
@@ -24,6 +25,25 @@ export class UserService {
     private toastr: ToastrService,
     ) { 
       this.getCurrentUser.emit(localStorage.getItem('email'));
+    }
+
+    registerUser(RegisterModel: Register): Observable<any> {  
+      let url = this.apiURI + "/register";
+      // let body = "email=" + loginUser.email + "&password=" + loginUser.password;
+      let options = { headers: new HttpHeaders({ 
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept':'application/json',
+      }) };
+
+      return new Observable<any>((observer) => {
+          this.httpClient.post(url, RegisterModel, options).subscribe(response => {
+              observer.next(response)
+              observer.complete()
+          }, err => {
+              observer.next(err)
+              observer.complete()
+          })
+      })
     }
 
     public login(loginUser: UserLoginModel): void {
