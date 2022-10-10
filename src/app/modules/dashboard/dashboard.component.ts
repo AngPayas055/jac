@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
   logout() {
     this.loginService.logout().subscribe(data=>{
       this.toastr.info(data.error.text);
-      this.toastr.success("Login successful.")
     });
   }
 
