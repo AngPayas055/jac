@@ -76,6 +76,13 @@ export class UserService {
             console.log(data)
             observer.next(data);
             observer.complete();
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('expires_in');
+            localStorage.removeItem('token_type');
+            localStorage.removeItem('username');
+            localStorage.removeItem('userRights');
+            localStorage.removeItem('token');
+            localStorage.removeItem('email');
           },
           error => {
             localStorage.setItem('email', "");

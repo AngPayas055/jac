@@ -9,7 +9,7 @@
 .bottom-items{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0 5px;
 }
 ::ng-deep .mat-form-field .mat-input-element {
