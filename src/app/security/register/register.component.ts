@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         }, 500);
         
       } else {
-        this.toastr.warning("Invalid Email")
+        this.toastr.warning("Invalid Email / Password not match")
       }
     });
 
