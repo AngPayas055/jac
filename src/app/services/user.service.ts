@@ -70,10 +70,8 @@ export class UserService {
     public logout(): any {
       return new Observable(observer => {
         let options: any = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token') }) };
-        console.log(options)
         this.httpClient.get(this.apiURI + "/logout", options).subscribe(
           data => {
-            console.log(data)
             observer.next(data);
             observer.complete();
             localStorage.removeItem('access_token');
