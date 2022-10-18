@@ -83,6 +83,7 @@ export class UserService {
             localStorage.removeItem('userRights');
             localStorage.removeItem('token');
             localStorage.removeItem('email');
+            localStorage.removeItem('name');
           },
           error => {
             localStorage.setItem('email', "");
