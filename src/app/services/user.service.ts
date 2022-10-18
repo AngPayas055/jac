@@ -55,6 +55,7 @@ export class UserService {
         response => {
           localStorage.setItem('email', loginUser.email);
           localStorage.setItem('token', response["token"]);
+          localStorage.setItem('name', response["name"]);
           
           this.loginSource.next([true, "Login successful."]);
           
