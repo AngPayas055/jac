@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
     this.getProducts();
   }
   productData: ProductModel[] = [];
+  name = localStorage.getItem('name');
 
   logout() {
     this.loginService.logout().subscribe(data=>{
@@ -41,7 +42,6 @@ export class DashboardComponent implements OnInit {
         this.productData.push(obj);
       })
       console.log(this.productData[0])
-      console.log('test',localStorage.getItem("username"))
     });
   }
 

@@ -55,6 +55,7 @@ export class UserService {
         response => {
           localStorage.setItem('email', loginUser.email);
           localStorage.setItem('token', response["token"]);
+          localStorage.setItem('name', response["name"]);
           
           this.loginSource.next([true, "Login successful."]);
           
@@ -70,10 +71,8 @@ export class UserService {
     public logout(): any {
       return new Observable(observer => {
         let options: any = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token') }) };
-        console.log(options)
         this.httpClient.get(this.apiURI + "/logout", options).subscribe(
           data => {
-            console.log(data)
             observer.next(data);
             observer.complete();
             localStorage.removeItem('access_token');
@@ -83,6 +82,7 @@ export class UserService {
             localStorage.removeItem('userRights');
             localStorage.removeItem('token');
             localStorage.removeItem('email');
+            localStorage.removeItem('name');
           },
           error => {
             localStorage.setItem('email', "");
