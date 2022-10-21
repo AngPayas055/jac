@@ -7,8 +7,8 @@
     /* padding: 10px */
 }
 .fullpage-cont{
-    max-width: calc(1440px - 40px);
-    width: 100%;
+    /* max-width: calc(1440px - 40px); */
+    width: calc(100% - 40px);
     margin: 0 auto;
     padding: 20px;
 }
