@@ -15,3 +15,6 @@
     transform: scale(2);
     color: brown;
 }
+.greetings{
+    text-transform: capitalize;
+}
