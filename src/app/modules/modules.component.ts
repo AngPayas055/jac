@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductModel } from '../models/product.model';
+import { UserService } from '../../app/services/user.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModulesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private loginService: UserService,
+    ) { }
 
   ngOnInit(): void {
+  }
+  
+  productData: ProductModel[] = [];
+  name = localStorage.getItem('name');
+
+  logout() {
+    this.loginService.logout().subscribe(data=>{
+      // this.toastr.info(data.error.text);
+    });
   }
 
 }

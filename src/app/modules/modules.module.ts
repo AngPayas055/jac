@@ -5,6 +5,7 @@ import { ModulesRoutingModule } from './modules-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ModulesRoutingActivate } from './modules-routing.activate';
 import { ModulesComponent } from './modules.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ModulesComponent } from './modules.component';
   ],
   imports: [
     CommonModule,
-    ModulesRoutingModule
+    ModulesRoutingModule,
+    MatIconModule
   ],
   providers: [
     ModulesRoutingActivate,

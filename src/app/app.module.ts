@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule  } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { MatSnackBarModule  } from '@angular/material/snack-bar';
+import {MatIconModule} from '@angular/material/icon';
 // import { SecurityComponent } from './security/security.component';
 // import { LoginComponent } from './security/login/login.component';
 

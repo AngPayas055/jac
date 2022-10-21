@@ -1,5 +1,7 @@
 .container{
     max-width: 680px; 
+    width: calc(100% - 40px);
+    padding: 20px;
     margin: 0 auto
 }
 .greetings{

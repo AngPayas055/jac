@@ -1,0 +1,17 @@
+.outer-cont{
+    width: 100%;
+    background-color: #484f61;
+}
+.container{
+    display: flex;
+    max-width: 1000px; 
+    width: calc(100% - 40px);
+    padding: 5px 20px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items:center;
+}
+.logout{
+    transform: scale(2);
+    color: brown;
+}
