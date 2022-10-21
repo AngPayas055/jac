@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: ModulesComponent,
     children: [
-      { path: '', component: ModulesComponent },
+      { path: '', canActivate: [ModulesRoutingActivate], component: ModulesComponent },
       { path: 'dashboard', canActivate: [ModulesRoutingActivate], component: DashboardComponent }
     ]
     // children: [
