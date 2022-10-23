@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit {
   productData: ProductModel[] = [];
   postsData: PostModel[] = [];
   postsAuthor: PostAuthorModel[] = [];
-  postsAuthorArray:any = [];
   name = localStorage.getItem('name');
   postDataSource: MatTableDataSource<PostModel>;
 
@@ -63,16 +62,8 @@ export class DashboardComponent implements OnInit {
           content: value.content,
         }
         this.postsData.push(dataSource);
-        this.productService.getUsersName(dataSource.user_id).subscribe(response => {        
-            this.postsAuthorArray.push(response);  
-        })
       })
-    }) 
-    this.getNamesArray()         
-  }
-
-  getNamesArray(){
-    console.log('arraynamesdsdf s',this.postsAuthorArray)
+    })      
   }
 
 }
