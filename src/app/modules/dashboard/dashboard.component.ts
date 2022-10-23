@@ -13,7 +13,6 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DashboardComponent implements OnInit {
 
-  dataSource;
   productData: ProductModel[] = [];
   postsData: PostModel[] = [];
   name = localStorage.getItem('name');
@@ -62,9 +61,7 @@ export class DashboardComponent implements OnInit {
           content: value.content,
         }
         this.postsData.push(dataSource);
-        this.postDataSource = new MatTableDataSource(this.postsData)
       })
-      console.log(this.postsData)
     });
   }
 
