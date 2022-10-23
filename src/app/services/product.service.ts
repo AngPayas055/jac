@@ -26,4 +26,15 @@ export class ProductService {
     })
   }
 
+  public getPost(): Observable<any> {
+    
+    let options: any = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return new Observable<any>( (observer) => {
+        this.http.get(this.apiURI + "/posts", options).subscribe( response => {
+            observer.next(response);
+            observer.complete();
+        })
+    })
+  }
+
 }

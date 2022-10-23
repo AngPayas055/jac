@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
+import { PostModel } from '../../models/post.model';
 import { ProductService } from '../../services/product.service';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +12,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  dataSource;
+  productData: ProductModel[] = [];
+  postsData: PostModel[] = [];
+  name = localStorage.getItem('name');
+  postDataSource: MatTableDataSource<PostModel>;
 
   constructor(
     private loginService: UserService,
@@ -20,8 +28,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
   }
-  productData: ProductModel[] = [];
-  name = localStorage.getItem('name');
 
   logout() {
     this.loginService.logout().subscribe(data=>{
@@ -41,7 +47,24 @@ export class DashboardComponent implements OnInit {
         }
         this.productData.push(obj);
       })
-      console.log(this.productData[0])
+    });
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.productService.getPost().subscribe(data => {
+      this.postsData = []
+      this.postDataSource = new MatTableDataSource(this.postsData);
+      data.map((value, index) => {
+        let dataSource = {
+          id: value.id,
+          user_id: value.user_id,
+          content: value.content,
+        }
+        this.postsData.push(dataSource);
+        this.postDataSource = new MatTableDataSource(this.postsData)
+      })
+      console.log(this.postsData)
     });
   }
 

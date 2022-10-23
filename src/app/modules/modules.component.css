@@ -13,5 +13,11 @@
 }
 .logout{
     transform: scale(2);
-    color: brown;
+    color: #fff;
+}
+.logout:hover{
+    color: #2C9986;
+}
+.greetings{
+    text-transform: capitalize;
 }
