@@ -23,7 +23,7 @@ export class ProductService {
         'Accept':'application/json',
     }) }
     return this.headers;
-}
+  }
 
   public getProducts(): Observable<any> {
     
@@ -39,6 +39,15 @@ export class ProductService {
   public getPost(): Observable<any> {
     return new Observable<any>( (observer) => {
         this.http.get(this.apiURI + "/posts", this.getHeaders()).subscribe( response => {
+            observer.next(response);
+            observer.complete();
+        })
+    })
+  }
+
+  public getUsersName(userId:number): Observable<any> {
+    return new Observable<any>( (observer) => {
+        this.http.get(this.apiURI + "/posts/showname/" + userId, this.getHeaders()).subscribe( response => {
             observer.next(response);
             observer.complete();
         })

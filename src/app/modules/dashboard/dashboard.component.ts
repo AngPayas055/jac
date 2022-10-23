@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
+import { PostAuthorModel } from 'src/app/models/post-author.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,8 @@ export class DashboardComponent implements OnInit {
 
   productData: ProductModel[] = [];
   postsData: PostModel[] = [];
+  postsAuthor: PostAuthorModel[] = [];
+  postsAuthorArray:any = [];
   name = localStorage.getItem('name');
   postDataSource: MatTableDataSource<PostModel>;
 
@@ -52,8 +55,7 @@ export class DashboardComponent implements OnInit {
 
   getPosts() {
     this.productService.getPost().subscribe(data => {
-      this.postsData = []
-      this.postDataSource = new MatTableDataSource(this.postsData);
+      this.postsData = [];
       data.map((value, index) => {
         let dataSource = {
           id: value.id,
@@ -61,8 +63,16 @@ export class DashboardComponent implements OnInit {
           content: value.content,
         }
         this.postsData.push(dataSource);
+        this.productService.getUsersName(dataSource.user_id).subscribe(response => {        
+            this.postsAuthorArray.push(response);  
+        })
       })
-    });
+    }) 
+    this.getNamesArray()         
+  }
+
+  getNamesArray(){
+    console.log('arraynamesdsdf s',this.postsAuthorArray)
   }
 
 }
