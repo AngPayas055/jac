@@ -60,6 +60,7 @@ export class DashboardComponent implements OnInit {
           id: value.id,
           user_id: value.user_id,
           content: value.content,
+          name: value.name,
         }
         this.postsData.push(dataSource);
       })

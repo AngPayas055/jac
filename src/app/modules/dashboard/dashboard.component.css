@@ -4,3 +4,10 @@
     padding: 20px;
     margin: 0 auto
 }
+.table{
+    width: 100%;
+}
+.posts-cont{
+    width: 100%;
+    padding: 10px 0
+}

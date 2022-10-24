@@ -1,10 +1,8 @@
 <div class="container">
     <table class="table table-striped">
-        <ng-container>
-             <div *ngFor="let employee of postsData;">
-               <tr>{{employee.user_id}}</tr>
+             <div *ngFor="let employee of postsData;" class="posts-cont">
+               <tr>{{employee.name}}</tr>
                <tr>{{employee.content}}</tr>
              </div>
-         </ng-container>
     </table>
 </div>
