@@ -8,6 +8,17 @@
     width: 100%;
 }
 .posts-cont{
-    width: 100%;
-    padding: 10px 0
+    width: calc(100%-30px);
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #484F61;
+    border-radius: 10px;
+}
+.avatar{
+    margin-right: 5px;
+    color: #299884;
+}
+.author-cont{
+    display: flex;
+    align-items: center;
 }

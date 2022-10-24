@@ -1,8 +1,13 @@
 <div class="container">
     <table class="table table-striped">
-             <div *ngFor="let employee of postsData;" class="posts-cont">
-               <tr>{{employee.name}}</tr>
-               <tr>{{employee.content}}</tr>
-             </div>
+      <div *ngFor="let employee of postsData;" class="posts-cont">
+        <tr>
+          <div class="author-cont">
+            <mat-icon class="avatar">account_circle</mat-icon>{{employee.name}}
+          </div>
+        </tr> <br>
+        <tr>{{employee.content}}</tr>
+      </div>
     </table>
 </div>
+
