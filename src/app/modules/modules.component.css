@@ -22,6 +22,9 @@
     text-transform: capitalize;
     margin-left: 10px;
 }
+.greetings:hover{
+    color: #2C9986;    
+}
 .account{
     display:flex;
     align-items:center

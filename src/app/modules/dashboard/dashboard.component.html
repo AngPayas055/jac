@@ -1,5 +1,28 @@
 <div class="container">
     <table class="table table-striped">
+      <div class="posts-cont">
+        <div class="user-cont">          
+          <mat-icon class="user-avatar">account_circle</mat-icon>
+          <button class="input-btn">What's on your mind, {{name}}?</button>
+        </div>
+        <div class="divider">          
+          <mat-divider></mat-divider>
+        </div>
+        <div class="icons-cont">
+          <div class="items-cont">            
+            <mat-icon class="avatar-one">insert_photo</mat-icon>
+            <span>Item 1</span>
+          </div>
+          <div class="items-cont">            
+            <mat-icon class="avatar-two">videocam</mat-icon>
+            <span>Item 2</span>
+          </div>
+          <div class="items-cont">            
+            <mat-icon class="avatar-three">games</mat-icon>
+            <span>Item 3</span>
+          </div>
+        </div>
+      </div>
       <div *ngFor="let employee of postsData;" class="posts-cont">
         <tr>
           <div class="author-cont">

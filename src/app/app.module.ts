@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule  } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { MatSnackBarModule  } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 // import { MatIconModule } from '@angular/material/icon';
 // import { LandingComponent } from './landing/landing.component';
 // import { HomeComponent } from './landing/home/home.component'; 
@@ -29,6 +30,7 @@ import { MatSnackBarModule  } from '@angular/material/snack-bar';
     RouterModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatDividerModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',

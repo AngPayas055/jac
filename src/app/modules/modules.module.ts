@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ModulesRoutingActivate } from './modules-routing.activate';
 import { ModulesComponent } from './modules.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     ModulesRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   providers: [
     ModulesRoutingActivate,

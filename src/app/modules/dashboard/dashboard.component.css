@@ -18,7 +18,52 @@
     margin-right: 5px;
     color: #299884;
 }
+.avatar-one{
+    margin-right: 5px;
+    color: #EE583F;
+}
+.avatar-two{
+    margin-right: 5px;
+    color: #DABC42;
+}
+.avatar-three{
+    margin-right: 5px;
+    color: #2374E1;
+}
 .author-cont{
     display: flex;
     align-items: center;
+}
+.user-avatar{
+    color: #F0BD08;
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+.input-btn{
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 20px;
+    background-color: #6F717E;
+    color: #fff;
+}
+.user-cont{
+    display: flex;
+    align-items: center;
+}
+.icons-cont{
+    display: flex;
+    justify-content:space-between;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.items-cont{
+    display: flex;
+    align-items:center;
+}
+.divider{
+    padding: 20px 5px;
 }
