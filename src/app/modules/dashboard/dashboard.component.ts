@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import { PostAuthorModel } from 'src/app/models/post-author.model';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -76,14 +78,28 @@ export class DashboardComponent implements OnInit {
   }
 }
 
+// 
+// addpost dialog
+
 @Component({
   selector: 'dashboard-addpost-dialog',
   templateUrl: 'dashboard-addpost-dialog.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboadAddpostDialog {
-  constructor(public dialogRef: MatDialogRef<DashboadAddpostDialog>) {}  
-  name = localStorage.getItem('name');
+  constructor(
+    private router: Router,
+    public dialogRef: MatDialogRef<DashboadAddpostDialog>,    
+    public productService: ProductService,
+    ) {}  
+
+  id = localStorage.getItem('id');
+  name = localStorage.getItem('name');  
+	postModel: PostModel = new PostModel();
+  postContent: any = {
+    user_id: this.id,
+    content: ''
+  }
 
   autoGrowTextZone(e) {
     e.target.style.height = "0px";
@@ -92,5 +108,15 @@ export class DashboadAddpostDialog {
 
   closeDialog(): void {
     this.dialogRef.close();
+  }
+
+  addPost(){
+    this.postModel.user_id = this.postContent.user_id;
+    this.postModel.content = this.postContent.content;
+    console.log(this.postModel.content)
+    this.productService.addPost(this.postModel).subscribe(data =>{   
+      location.reload();
+      this.dialogRef.close();  
+    })    
   }
 }

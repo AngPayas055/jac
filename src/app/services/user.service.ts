@@ -56,6 +56,7 @@ export class UserService {
           localStorage.setItem('email', loginUser.email);
           localStorage.setItem('token', response["token"]);
           localStorage.setItem('name', response["name"]);
+          localStorage.setItem('id', response["id"]);
           
           this.loginSource.next([true, "Login successful."]);
           
@@ -83,6 +84,7 @@ export class UserService {
             localStorage.removeItem('token');
             localStorage.removeItem('email');
             localStorage.removeItem('name');
+            localStorage.removeItem('id');
           },
           error => {
             localStorage.setItem('email', "");

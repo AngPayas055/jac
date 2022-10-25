@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { AppSettings } from '../settings/app.settings';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PostModel } from '../models/post.model';
 // import { ProductModel } from '../landing/home/product-model';
 
 @Injectable({
@@ -45,12 +46,15 @@ export class ProductService {
     })
   }
 
-  public getUsersName(userId:number): Observable<any> {
+  addPost(postModel: PostModel){
     return new Observable<any>( (observer) => {
-        this.http.get(this.apiURI + "/posts/showname/" + userId, this.getHeaders()).subscribe( response => {
-            observer.next(response);
-            observer.complete();
-        })
+      this.http.post(this.apiURI + "/posts",postModel, this.getHeaders()).subscribe( response => {
+          observer.next(response)
+          observer.complete()
+      }, err => {
+          observer.next(false)
+          observer.complete()
+      })
     })
   }
 

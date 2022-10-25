@@ -1,4 +1,4 @@
-<div class="dialog-cont">
+<form class="dialog-cont">
   <div class="header-create-cont">  
     <span></span>  
     <h3 class="text-center title-create" mat-dialog-title>Create post</h3>
@@ -10,9 +10,9 @@
   <div class="account">
       <mat-icon class="avatar-addpost">account_circle</mat-icon><h3 class="greetings">{{name}}</h3>
   </div>
-  <textarea class="content-texts" (keyup)="autoGrowTextZone($event)" placeholder="What's on your mind, {{name}}?"></textarea>
+  <textarea class="content-texts" (keyup)="autoGrowTextZone($event)" placeholder="What's on your mind, {{name}}?" [ngModelOptions]="{standalone: true}" [(ngModel)]="postContent.content"></textarea>
   <div mat-dialog-actions>
     <!-- <button mat-button mat-dialog-close>No</button> -->
-    <button class="btn-post">Post</button>
+    <button (click)="addPost()" class="btn-post">Post</button>
   </div>
-</div>
+</form>

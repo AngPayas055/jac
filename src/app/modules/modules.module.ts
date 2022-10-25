@@ -7,6 +7,7 @@ import { ModulesRoutingActivate } from './modules-routing.activate';
 import { ModulesComponent } from './modules.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { MatDividerModule } from '@angular/material/divider';
     CommonModule,
     ModulesRoutingModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ModulesRoutingActivate,
