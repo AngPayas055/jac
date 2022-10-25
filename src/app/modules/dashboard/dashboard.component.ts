@@ -34,19 +34,24 @@ export class DashboardComponent implements OnInit {
     this.getProducts();
   }
 
-  openDialog(): void {
+  openDialog(method:string): void {
     this.dialog.open(DashboadAddpostDialog, {
       width: '650px',
+      data: {
+        objMethod: method
+      },
     });
   }
 
-  openEditDialog(id:number,content:any): void {
+  openEditDialog(id:number,content:any,method:string): void {
     this.dialog.open(DashboadAddpostDialog, {
       width: '650px',
       data: {
         objId: id,
-        objConten: content
-      }
+        objConten: content,
+        objMethod: method
+      },
+      
     });
   }
 
@@ -106,6 +111,7 @@ export class DashboadAddpostDialog {
 
   id = localStorage.getItem('id');
   name = localStorage.getItem('name');  
+  method = "";
 	postModel: PostModel = new PostModel();
   postContent: any = {
     user_id: this.id,
@@ -117,7 +123,9 @@ export class DashboadAddpostDialog {
   }
 
   checkCaseData(){
+    this.method = this.caseData.objMethod;
     this.loadEditData();
+    console.log(this.caseData)
   }
 
   autoGrowTextZone(e) {
@@ -134,12 +142,26 @@ export class DashboadAddpostDialog {
   }
 
   addPost(){
-    this.postModel.user_id = this.postContent.user_id;
-    this.postModel.content = this.postContent.content;
-    this.productService.addPost(this.postModel).subscribe(data =>{   
-      location.reload();
-      this.dialogRef.close();  
-    })    
+    if(this.method == 'Delete'){
+      this.productService.deletePost(this.caseData.objId).subscribe(data =>{
+        location.reload();
+        this.dialogRef.close();  
+        return
+      })
+    }else if (this.method == 'Edit'){
+      this.productService.editPost(this.caseData.objId,this.postModel).subscribe(data =>{
+        location.reload();
+        this.dialogRef.close();  
+      })
+    }
+    else{      
+      this.postModel.user_id = this.postContent.user_id;
+      this.postModel.content = this.postContent.content;
+      this.productService.addPost(this.postModel).subscribe(data =>{   
+        location.reload();
+        this.dialogRef.close();  
+    })   
+    } 
   }
 
 }

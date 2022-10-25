@@ -46,9 +46,33 @@ export class ProductService {
     })
   }
 
-  addPost(postModel: PostModel){
+  public addPost(postModel: PostModel){
     return new Observable<any>( (observer) => {
       this.http.post(this.apiURI + "/posts",postModel, this.getHeaders()).subscribe( response => {
+          observer.next(response)
+          observer.complete()
+      }, err => {
+          observer.next(false)
+          observer.complete()
+      })
+    })
+  }
+
+  public editPost(authorId:number,postModel: PostModel){
+    return new Observable<any>( (observer) => {
+      this.http.put(this.apiURI + "/posts",postModel, this.getHeaders()).subscribe( response => {
+          observer.next(response)
+          observer.complete()
+      }, err => {
+          observer.next(false)
+          observer.complete()
+      })
+    })
+  }
+
+  public deletePost(id:number){
+    return new Observable<any>( (observer) => {
+      this.http.delete(this.apiURI + "/posts/"+id, this.getHeaders()).subscribe( response => {
           observer.next(response)
           observer.complete()
       }, err => {

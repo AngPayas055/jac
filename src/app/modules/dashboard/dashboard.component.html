@@ -3,7 +3,7 @@
       <div class="posts-cont">
         <div class="user-cont">          
           <mat-icon class="user-avatar">account_circle</mat-icon>
-          <button (click)="openDialog()" class="input-btn">What's on your mind, {{name}}?</button>
+          <button (click)="openDialog('Add')" class="input-btn">What's on your mind, {{name}}?</button>
         </div>
         <div class="divider">          
           <mat-divider></mat-divider>
@@ -29,9 +29,9 @@
             <mat-icon class="avatar" c>account_circle</mat-icon>{{employee.name}}
             {{employee.id}}
           </div>          
-          <div>            
-            <mat-icon class="edit" (click)="openEditDialog(employee.id,employee.content)">edit</mat-icon>
-            <mat-icon class="delete">delete_outline</mat-icon>
+          <div>       
+            <mat-icon class="edit" (click)="openEditDialog(employee.id,employee.content,'Edit')">edit</mat-icon>
+            <mat-icon class="delete" (click)="openEditDialog(employee.id,employee.content,'Delete')">delete_outline</mat-icon>
           </div>
         </div> <br>
         <tr>{{employee.content}}</tr>
