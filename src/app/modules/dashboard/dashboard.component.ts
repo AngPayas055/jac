@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { PostModel } from '../../models/post.model';
 import { ProductService } from '../../services/product.service';
@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import { PostAuthorModel } from 'src/app/models/post-author.model';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -37,6 +37,16 @@ export class DashboardComponent implements OnInit {
   openDialog(): void {
     this.dialog.open(DashboadAddpostDialog, {
       width: '650px',
+    });
+  }
+
+  openEditDialog(id:number,content:any): void {
+    this.dialog.open(DashboadAddpostDialog, {
+      width: '650px',
+      data: {
+        objId: id,
+        objConten: content
+      }
     });
   }
 
@@ -87,7 +97,8 @@ export class DashboardComponent implements OnInit {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboadAddpostDialog {
-  constructor(
+  constructor(    
+    @Inject(MAT_DIALOG_DATA) public caseData: any,
     private router: Router,
     public dialogRef: MatDialogRef<DashboadAddpostDialog>,    
     public productService: ProductService,
@@ -100,6 +111,14 @@ export class DashboadAddpostDialog {
     user_id: this.id,
     content: ''
   }
+  
+  ngOnInit(): void {
+    this.checkCaseData();
+  }
+
+  checkCaseData(){
+    this.loadEditData();
+  }
 
   autoGrowTextZone(e) {
     e.target.style.height = "0px";
@@ -110,13 +129,17 @@ export class DashboadAddpostDialog {
     this.dialogRef.close();
   }
 
+  loadEditData(){
+    this.postContent.content = this.caseData.objConten;
+  }
+
   addPost(){
     this.postModel.user_id = this.postContent.user_id;
     this.postModel.content = this.postContent.content;
-    console.log(this.postModel.content)
     this.productService.addPost(this.postModel).subscribe(data =>{   
       location.reload();
       this.dialogRef.close();  
     })    
   }
+
 }

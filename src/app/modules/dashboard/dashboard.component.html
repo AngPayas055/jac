@@ -26,11 +26,11 @@
       <div *ngFor="let employee of postsData;" class="posts-cont">
         <div class="posts-header-cont">            
           <div class="author-cont">
-            <mat-icon class="avatar">account_circle</mat-icon>{{employee.name}}
-            {{employee.user_id}}
+            <mat-icon class="avatar" c>account_circle</mat-icon>{{employee.name}}
+            {{employee.id}}
           </div>          
           <div>            
-            <mat-icon class="edit">edit</mat-icon>
+            <mat-icon class="edit" (click)="openEditDialog(employee.id,employee.content)">edit</mat-icon>
             <mat-icon class="delete">delete_outline</mat-icon>
           </div>
         </div> <br>
