@@ -1,0 +1,18 @@
+<div class="dialog-cont">
+  <div class="header-create-cont">  
+    <span></span>  
+    <h3 class="text-center title-create" mat-dialog-title>Create post</h3>
+    <a (click)="closeDialog()" class="cancel" mat-dialog-close><mat-icon class="cancel-icon">cancel</mat-icon></a>
+  </div>
+  <div class="divider">          
+    <mat-divider></mat-divider>
+  </div>  
+  <div class="account">
+      <mat-icon class="avatar-addpost">account_circle</mat-icon><h3 class="greetings">{{name}}</h3>
+  </div>
+  <textarea class="content-texts" (keyup)="autoGrowTextZone($event)" placeholder="What's on your mind, {{name}}?"></textarea>
+  <div mat-dialog-actions>
+    <!-- <button mat-button mat-dialog-close>No</button> -->
+    <button class="btn-post">Post</button>
+  </div>
+</div>

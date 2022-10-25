@@ -4,3 +4,108 @@
     padding: 20px;
     margin: 0 auto
 }
+.table{
+    width: 100%;
+}
+.posts-cont{
+    width: calc(100%-30px);
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #484F61;
+    border-radius: 10px;
+}
+.avatar{
+    margin-right: 5px;
+    color: #299884;
+}
+.avatar-one{
+    margin-right: 5px;
+    color: #EE583F;
+}
+.avatar-two{
+    margin-right: 5px;
+    color: #DABC42;
+}
+.avatar-three{
+    margin-right: 5px;
+    color: #2374E1;
+}
+.author-cont{
+    display: flex;
+    align-items: center;
+}
+.user-avatar{
+    color: #F0BD08;
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+.input-btn{
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 20px;
+    background-color: #6F717E;
+    color: #fff;
+}
+.user-cont{
+    display: flex;
+    align-items: center;
+}
+.icons-cont{
+    display: flex;
+    justify-content:space-between;
+    max-width: 500px;
+    margin: 15px auto 0;
+}
+.items-cont{
+    display: flex;
+    align-items:center;
+}
+.divider{
+    padding: 20px 5px 0;
+}
+.title-create{
+    margin: 0;
+    font-weight: bold;
+}
+.content-texts{
+    display:block;
+    box-sizing: border-box;
+    width:100%;
+    resize: none;
+    overflow-y: hidden;
+    
+    /* optional CSS */
+    border: 0;
+    outline: 0;
+    background: #484F61;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 1.4em;
+    max-height: 50vh;
+}
+.greetings{    
+    text-transform: capitalize; 
+}
+.account{
+    display: flex;
+    align-items: center;
+    padding: 0
+}
+.avatar-addpost{
+    color: #F0BD08;
+    transform: scale(1.5);
+    margin: 0 10px
+}
+.header-create-cont{
+    display: flex;
+    align-items: center;
+    justify-content:space-between
+}
+.cancel-icon:hover{
+    color: #fff;
+    transform: scale(1.3);
+}

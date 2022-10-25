@@ -5,6 +5,8 @@ import { ProductService } from '../../services/product.service';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
+import { PostAuthorModel } from 'src/app/models/post-author.model';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,9 +15,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DashboardComponent implements OnInit {
 
-  dataSource;
   productData: ProductModel[] = [];
   postsData: PostModel[] = [];
+  postsAuthor: PostAuthorModel[] = [];
   name = localStorage.getItem('name');
   postDataSource: MatTableDataSource<PostModel>;
 
@@ -23,10 +25,17 @@ export class DashboardComponent implements OnInit {
     private loginService: UserService,
     public productService: ProductService,
     private toastr: ToastrService,
+    public dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  openDialog(): void {
+    this.dialog.open(DashboadAddpostDialog, {
+      width: '650px',
+    });
   }
 
   logout() {
@@ -53,19 +62,35 @@ export class DashboardComponent implements OnInit {
 
   getPosts() {
     this.productService.getPost().subscribe(data => {
-      this.postsData = []
-      this.postDataSource = new MatTableDataSource(this.postsData);
+      this.postsData = [];
       data.map((value, index) => {
         let dataSource = {
           id: value.id,
           user_id: value.user_id,
           content: value.content,
+          name: value.name,
         }
         this.postsData.push(dataSource);
-        this.postDataSource = new MatTableDataSource(this.postsData)
       })
-      console.log(this.postsData)
-    });
+    })      
+  }
+}
+
+@Component({
+  selector: 'dashboard-addpost-dialog',
+  templateUrl: 'dashboard-addpost-dialog.html',
+  styleUrls: ['./dashboard.component.css']
+})
+export class DashboadAddpostDialog {
+  constructor(public dialogRef: MatDialogRef<DashboadAddpostDialog>) {}  
+  name = localStorage.getItem('name');
+
+  autoGrowTextZone(e) {
+    e.target.style.height = "0px";
+    e.target.style.height = (e.target.scrollHeight + 20)+"px";
   }
 
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
 }

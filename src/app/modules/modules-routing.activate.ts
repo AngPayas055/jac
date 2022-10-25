@@ -9,7 +9,6 @@ export class ModulesRoutingActivate implements CanActivate {
   ) { }
 
   canActivate() {
-    console.log(localStorage.getItem("email"))
     if (localStorage.getItem("email") == "" || localStorage.getItem("email") == null) {
       this.router.navigate(["/security/login"]);
       return false;

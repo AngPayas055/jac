@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ProductModel } from '../landing/home/product-model';
 import { AppSettings } from '../settings/app.settings';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { ProductModel } from '../landing/home/product-model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ProductService {
 
   private apiURI: string  = new AppSettings().getApiUrl();
+  private headers: any;
 
   constructor(    
     private http: HttpClient,
   ) { }
+
+  // use this to get protected routes
+  public getHeaders():any{
+    this.headers = {headers: new HttpHeaders({
+        'Authorization':'Bearer '+localStorage.getItem('token'),
+        'Accept':'application/json',
+    }) }
+    return this.headers;
+  }
 
   public getProducts(): Observable<any> {
     
@@ -27,10 +37,17 @@ export class ProductService {
   }
 
   public getPost(): Observable<any> {
-    
-    let options: any = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return new Observable<any>( (observer) => {
-        this.http.get(this.apiURI + "/posts", options).subscribe( response => {
+        this.http.get(this.apiURI + "/posts", this.getHeaders()).subscribe( response => {
+            observer.next(response);
+            observer.complete();
+        })
+    })
+  }
+
+  public getUsersName(userId:number): Observable<any> {
+    return new Observable<any>( (observer) => {
+        this.http.get(this.apiURI + "/posts/showname/" + userId, this.getHeaders()).subscribe( response => {
             observer.next(response);
             observer.complete();
         })
