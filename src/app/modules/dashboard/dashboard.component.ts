@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { PostModel } from '../../models/post.model';
 import { ProductService } from '../../services/product.service';
@@ -6,7 +6,9 @@ import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import { PostAuthorModel } from 'src/app/models/post-author.model';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,9 +34,24 @@ export class DashboardComponent implements OnInit {
     this.getProducts();
   }
 
-  openDialog(): void {
+  openDialog(method:string): void {
     this.dialog.open(DashboadAddpostDialog, {
       width: '650px',
+      data: {
+        objMethod: method
+      },
+    });
+  }
+
+  openEditDialog(id:number,content:any,method:string): void {
+    this.dialog.open(DashboadAddpostDialog, {
+      width: '650px',
+      data: {
+        objId: id,
+        objConten: content,
+        objMethod: method
+      },
+      
     });
   }
 
@@ -76,14 +93,40 @@ export class DashboardComponent implements OnInit {
   }
 }
 
+// 
+// addpost dialog
+
 @Component({
   selector: 'dashboard-addpost-dialog',
   templateUrl: 'dashboard-addpost-dialog.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboadAddpostDialog {
-  constructor(public dialogRef: MatDialogRef<DashboadAddpostDialog>) {}  
-  name = localStorage.getItem('name');
+  constructor(    
+    @Inject(MAT_DIALOG_DATA) public caseData: any,
+    private router: Router,
+    public dialogRef: MatDialogRef<DashboadAddpostDialog>,    
+    public productService: ProductService,
+    ) {}  
+
+  id = localStorage.getItem('id');
+  name = localStorage.getItem('name');  
+  method = "";
+	postModel: PostModel = new PostModel();
+  postContent: any = {
+    user_id: this.id,
+    content: ''
+  }
+  
+  ngOnInit(): void {
+    this.checkCaseData();
+  }
+
+  checkCaseData(){
+    this.method = this.caseData.objMethod;
+    this.loadEditData();
+    console.log(this.caseData)
+  }
 
   autoGrowTextZone(e) {
     e.target.style.height = "0px";
@@ -93,4 +136,32 @@ export class DashboadAddpostDialog {
   closeDialog(): void {
     this.dialogRef.close();
   }
+
+  loadEditData(){
+    this.postContent.content = this.caseData.objConten;
+  }
+
+  addPost(){
+    if(this.method == 'Delete'){
+      this.productService.deletePost(this.caseData.objId).subscribe(data =>{
+        location.reload();
+        this.dialogRef.close();  
+        return
+      })
+    }else if (this.method == 'Edit'){
+      this.productService.editPost(this.caseData.objId,this.postModel).subscribe(data =>{
+        location.reload();
+        this.dialogRef.close();  
+      })
+    }
+    else{      
+      this.postModel.user_id = this.postContent.user_id;
+      this.postModel.content = this.postContent.content;
+      this.productService.addPost(this.postModel).subscribe(data =>{   
+        location.reload();
+        this.dialogRef.close();  
+    })   
+    } 
+  }
+
 }
