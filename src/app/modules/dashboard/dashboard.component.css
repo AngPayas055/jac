@@ -126,3 +126,6 @@ tr{
 .delete:hover{
     color: #D55646;
 }
+.divider-comment{
+    padding: 10px 0;
+}

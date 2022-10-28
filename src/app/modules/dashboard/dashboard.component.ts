@@ -9,6 +9,7 @@ import { PostAuthorModel } from 'src/app/models/post-author.model';
 import { MatDialog, MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DashboardCommentDialogComponent } from '../dashboard-comment-dialog/dashboard-comment-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
   postsData: PostModel[] = [];
   postsAuthor: PostAuthorModel[] = [];
   name = localStorage.getItem('name');
+  localId = localStorage.getItem('id');
   postDataSource: MatTableDataSource<PostModel>;
 
   constructor(
@@ -32,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    console.log(this.localId)
   }
 
   openDialog(method:string): void {
@@ -90,6 +93,17 @@ export class DashboardComponent implements OnInit {
         this.postsData.push(dataSource);
       })
     })      
+  }
+  comment(): void {
+    const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
+      width: '720px',
+      // data: {name: this.name, animal: this.animal},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 }
 
@@ -159,7 +173,7 @@ export class DashboadAddpostDialog {
       this.postModel.content = this.postContent.content;
       this.productService.addPost(this.postModel).subscribe(data =>{   
         location.reload();
-        this.dialogRef.close();  
+        this.dialogRef.close(); 
     })   
     } 
   }

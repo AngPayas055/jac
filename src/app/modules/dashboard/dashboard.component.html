@@ -29,12 +29,14 @@
             <mat-icon class="avatar" c>account_circle</mat-icon>{{employee.name}}
             {{employee.id}}
           </div>          
-          <div>       
+          <div *ngIf="employee.user_id == localId">       
             <mat-icon class="edit" (click)="openEditDialog(employee.id,employee.content,'Edit')">edit</mat-icon>
             <mat-icon class="delete" (click)="openEditDialog(employee.id,employee.content,'Delete')">delete_outline</mat-icon>
           </div>
         </div> <br>
         <tr>{{employee.content}}</tr>
+        <div class="divider-comment"><mat-divider></mat-divider></div>
+        <a (click)="comment()">Comment</a>
       </div>
     </table>
 </div>

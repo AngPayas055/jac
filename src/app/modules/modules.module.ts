@@ -8,13 +8,15 @@ import { ModulesComponent } from './modules.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardCommentDialogComponent } from './dashboard-comment-dialog/dashboard-comment-dialog.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ModulesComponent,
-    DashboadAddpostDialog
+    DashboadAddpostDialog,
+    DashboardCommentDialogComponent
   ],
   imports: [
     CommonModule,
