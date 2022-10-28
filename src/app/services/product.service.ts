@@ -58,9 +58,9 @@ export class ProductService {
     })
   }
 
-  public editPost(authorId:number,postModel: PostModel){
+  public editPost(postId:number,postModel: PostModel){
     return new Observable<any>( (observer) => {
-      this.http.put(this.apiURI + "/posts",postModel, this.getHeaders()).subscribe( response => {
+      this.http.put(this.apiURI + "/posts/"+postId, postModel, this.getHeaders()).subscribe( response => {
           observer.next(response)
           observer.complete()
       }, err => {

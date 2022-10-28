@@ -38,23 +38,30 @@ export class DashboardComponent implements OnInit {
   }
 
   openDialog(method:string): void {
-    this.dialog.open(DashboadAddpostDialog, {
+    const matDialogRef = this.dialog.open(DashboadAddpostDialog, {
       width: '650px',
       data: {
         objMethod: method
       },
+      disableClose: true
+    });
+    matDialogRef.afterClosed().subscribe(result => {
+        this.getPosts();
     });
   }
 
   openEditDialog(id:number,content:any,method:string): void {
-    this.dialog.open(DashboadAddpostDialog, {
+    const matDialogRef = this.dialog.open(DashboadAddpostDialog, {
       width: '650px',
       data: {
         objId: id,
         objConten: content,
         objMethod: method
       },
-      
+      disableClose: true      
+    });
+    matDialogRef.afterClosed().subscribe(result => {
+        this.getPosts();
     });
   }
 
@@ -158,13 +165,13 @@ export class DashboadAddpostDialog {
   addPost(){
     if(this.method == 'Delete'){
       this.productService.deletePost(this.caseData.objId).subscribe(data =>{
-        location.reload();
+        // location.reload();
         this.dialogRef.close();  
         return
       })
     }else if (this.method == 'Edit'){
-      this.productService.editPost(this.caseData.objId,this.postModel).subscribe(data =>{
-        location.reload();
+      this.productService.editPost(this.caseData.objId,this.postContent).subscribe(data =>{
+        console.log('testasdf asdf ',this.caseData.objId,this.postContent)
         this.dialogRef.close();  
       })
     }
@@ -172,7 +179,7 @@ export class DashboadAddpostDialog {
       this.postModel.user_id = this.postContent.user_id;
       this.postModel.content = this.postContent.content;
       this.productService.addPost(this.postModel).subscribe(data =>{   
-        location.reload();
+        // location.reload();
         this.dialogRef.close(); 
     })   
     } 

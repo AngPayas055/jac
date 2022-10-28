@@ -23,18 +23,18 @@
           </div>
         </div>
       </div>
-      <div *ngFor="let employee of postsData;" class="posts-cont">
+      <div *ngFor="let post of postsData;" class="posts-cont">
         <div class="posts-header-cont">            
           <div class="author-cont">
-            <mat-icon class="avatar" c>account_circle</mat-icon>{{employee.name}}
-            {{employee.id}}
+            <mat-icon class="avatar">account_circle</mat-icon>{{post.name}}
+            {{post.id}}
           </div>          
-          <div *ngIf="employee.user_id == localId">       
-            <mat-icon class="edit" (click)="openEditDialog(employee.id,employee.content,'Edit')">edit</mat-icon>
-            <mat-icon class="delete" (click)="openEditDialog(employee.id,employee.content,'Delete')">delete_outline</mat-icon>
+          <div *ngIf="post.user_id == localId">       
+            <mat-icon class="edit" (click)="openEditDialog(post.id,post.content,'Edit')">edit</mat-icon>
+            <mat-icon class="delete" (click)="openEditDialog(post.id,post.content,'Delete')">delete_outline</mat-icon>
           </div>
         </div> <br>
-        <tr>{{employee.content}}</tr>
+        <tr>{{post.content}}</tr>
         <div class="divider-comment"><mat-divider></mat-divider></div>
         <a (click)="comment()">Comment</a>
       </div>
