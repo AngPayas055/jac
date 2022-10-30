@@ -36,7 +36,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    console.log(this.localId)
   }
 
   openDialog(method:string): void {
@@ -116,18 +115,18 @@ export class DashboardComponent implements OnInit {
           name: value.name
         }
         this.commentsData.push(dataSource);
-        console.log('commentsfas df',this.commentsData)
       })
     })      
   }
-  comment(): void {
+  comment(commentData:any,method:string,post_id:any): void {
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
       width: '720px',
       // data: {name: this.name, animal: this.animal},
+      data: [commentData,method,post_id]
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.getComments();
       // this.animal = result;
     });
   }
@@ -165,7 +164,6 @@ export class DashboadAddpostDialog {
   checkCaseData(){
     this.method = this.caseData.objMethod;
     this.loadEditData();
-    console.log(this.caseData)
   }
 
   autoGrowTextZone(e) {
@@ -190,7 +188,6 @@ export class DashboadAddpostDialog {
       })
     }else if (this.method == 'Edit'){
       this.productService.editPost(this.caseData.objId,this.postContent).subscribe(data =>{
-        console.log('testasdf asdf ',this.caseData.objId,this.postContent)
         this.dialogRef.close();  
       })
     }

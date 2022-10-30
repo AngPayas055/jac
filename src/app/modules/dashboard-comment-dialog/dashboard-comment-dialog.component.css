@@ -1,0 +1,46 @@
+
+.header-create-cont{
+    display: flex;
+    align-items: center;
+    justify-content:space-between
+}
+.title-create{
+    margin: 0;
+    font-weight: bold;
+}
+.cancel-icon:hover{
+    color: #fff;
+    transform: scale(1.3);
+}
+.divider{
+    padding: 20px 5px 0;
+}
+.account{
+    display: flex;
+    align-items: center;
+    padding: 0
+}
+.avatar-addpost{
+    color: #F0BD08;
+    transform: scale(1.5);
+    margin: 0 10px
+}
+.greetings{    
+    text-transform: capitalize; 
+}
+.content-texts{
+    display:block;
+    box-sizing: border-box;
+    width:100%;
+    resize: none;
+    overflow-y: hidden;
+    
+    /* optional CSS */
+    border: 0;
+    outline: 0;
+    background: #484F61;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 1.4em;
+    max-height: 50vh;
+}

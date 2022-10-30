@@ -1,1 +1,18 @@
-<p>dashboard-comment-dialog works!</p>
+<form class="dialog-cont">
+  <div class="header-create-cont">  
+    <span></span>  
+    <h3 class="text-center title-create capitalize" mat-dialog-title>{{caseData[1]}} Comment</h3>
+    <a (click)="closeDialog()" class="cancel" mat-dialog-close><mat-icon class="cancel-icon">cancel</mat-icon></a>
+  </div>
+  <div class="divider">          
+    <mat-divider></mat-divider>
+  </div>  
+  <div class="account">
+      <mat-icon class="avatar-addpost">account_circle</mat-icon><h3 class="greetings">{{name}}</h3>
+  </div>
+  <textarea class="content-texts" (keyup)="autoGrowTextZone($event)" placeholder="What's on your mind, {{name}}?" [ngModelOptions]="{standalone: true}" [(ngModel)]="commentDetails.comment"></textarea>
+  <div mat-dialog-actions>
+    <!-- <button mat-button mat-dialog-close>No</button> -->
+    <button (click)="addComment()" class="btn-post capitalize">{{caseData[1]}}</button>
+  </div>
+</form>

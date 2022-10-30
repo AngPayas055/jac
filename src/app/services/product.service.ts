@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { AppSettings } from '../settings/app.settings';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PostModel } from '../models/post.model';
+import { CommentModel } from '../models/comment.model';
 // import { ProductModel } from '../landing/home/product-model';
 
 @Injectable({
@@ -87,6 +88,39 @@ export class ProductService {
             observer.next(response);
             observer.complete();
         })
+    })
+  }
+  public addComment(commentModel: CommentModel){
+    return new Observable<any>( (observer) => {
+      this.http.post(this.apiURI + "/comments",commentModel, this.getHeaders()).subscribe( response => {
+          observer.next(response)
+          observer.complete()
+      }, err => {
+          observer.next(false)
+          observer.complete()
+      })
+    })
+  }
+  public editComment(commentId:number,comment: any){
+    return new Observable<any>( (observer) => {
+      this.http.put(this.apiURI + "/comments/"+commentId, comment, this.getHeaders()).subscribe( response => {
+          observer.next(response)
+          observer.complete()
+      }, err => {
+          observer.next(false)
+          observer.complete()
+      })
+    })
+  }
+  public deleteComment(id:number){
+    return new Observable<any>( (observer) => {
+      this.http.delete(this.apiURI + "/comments/"+id, this.getHeaders()).subscribe( response => {
+          observer.next(response)
+          observer.complete()
+      }, err => {
+          observer.next(false)
+          observer.complete()
+      })
     })
   }
 
