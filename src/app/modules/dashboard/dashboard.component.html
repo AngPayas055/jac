@@ -37,6 +37,16 @@
         <tr>{{post.content}}</tr>
         <div class="divider-comment"><mat-divider></mat-divider></div>
         <a (click)="comment()">Comment</a>
+        <div class="divider-comment"><mat-divider></mat-divider></div>
+        <div *ngFor="let comment of commentsData;">
+          <div *ngIf="comment.post_id == post.id" class="comment">              
+            <mat-icon class="comment-avatar">account_circle</mat-icon>          
+            <div class="com">
+              <div class="commenter">{{comment.name}}</div>
+              {{comment.comment}}
+            </div>
+          </div>
+        </div>
       </div>
     </table>
 </div>

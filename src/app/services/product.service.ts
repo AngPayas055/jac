@@ -81,5 +81,13 @@ export class ProductService {
       })
     })
   }
+  public getComments(): Observable<any> {
+    return new Observable<any>( (observer) => {
+        this.http.get(this.apiURI + "/comments", this.getHeaders()).subscribe( response => {
+            observer.next(response);
+            observer.complete();
+        })
+    })
+  }
 
 }

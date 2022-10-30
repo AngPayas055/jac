@@ -10,6 +10,7 @@ import { MatDialog, MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialo
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DashboardCommentDialogComponent } from '../dashboard-comment-dialog/dashboard-comment-dialog.component';
+import { CommentModel } from 'src/app/models/comment.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
 
   productData: ProductModel[] = [];
   postsData: PostModel[] = [];
+  commentsData: CommentModel[] = [];
   postsAuthor: PostAuthorModel[] = [];
   name = localStorage.getItem('name');
   localId = localStorage.getItem('id');
@@ -98,6 +100,23 @@ export class DashboardComponent implements OnInit {
           name: value.name,
         }
         this.postsData.push(dataSource);
+      })
+    })    
+    this.getComments();
+  }
+  getComments() {
+    this.productService.getComments().subscribe(data => {
+      this.commentsData = [];
+      data.map((value, index) => {
+        let dataSource = {
+          id: value.id,
+          post_id: value.post_id,
+          comment: value.comment,
+          commenter: value.commenter,
+          name: value.name
+        }
+        this.commentsData.push(dataSource);
+        console.log('commentsfas df',this.commentsData)
       })
     })      
   }
