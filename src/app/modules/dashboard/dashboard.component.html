@@ -27,7 +27,7 @@
         <div class="posts-header-cont">            
           <div class="author-cont">
             <mat-icon class="avatar">account_circle</mat-icon>{{post.name}}
-            {{post.id}}
+            <!-- {{post.id}} -->
           </div>          
           <div *ngIf="post.user_id == localId">       
             <mat-icon class="edit" (click)="openEditDialog(post.id,post.content,'Edit')">edit</mat-icon>
@@ -39,18 +39,25 @@
         <a (click)="comment('comments','add',post.id)">Comment</a>
         <div class="divider-comment"><mat-divider></mat-divider></div>
         <div *ngFor="let comments of commentsData;">
-          <div *ngIf="comments.post_id == post.id" class="comment">              
-            <mat-icon class="comment-avatar">account_circle</mat-icon>          
-            <div class="com">
-              <div class="commenter">{{comments.name}} 
+          <div *ngIf="comments.post_id == post.id" class="comment">             
+            <div class="com">          
+              <div class="comment-author-div">                
+                <mat-icon class="comment-avatar">account_circle</mat-icon> 
+                <div class="commenter">{{comments.name}} </div>
+              </div>
+              <div class="action-btn-div">                
                 <mat-icon class="edit" (click)="comment(comments,'edit',post.id)">edit</mat-icon>
                 <mat-icon class="delete" (click)="comment(comments,'delete',post.id)">delete_outline</mat-icon>
               </div>
-              {{comments.comment}}
-            </div>
+            </div>            
+            <div class="divider-comment"><mat-divider></mat-divider></div>
+            {{comments.comment}}
           </div>
+        </div>        
+        <div class="user-cont">          
+          <mat-icon class="user-avatar">account_circle</mat-icon>
+          <button class="input-btn" (click)="comment('comments','add',post.id)">Write a comment...</button>
         </div>
-        <a (click)="comment('comments','add',post.id)">Comment</a>
       </div>
     </table>
 </div>

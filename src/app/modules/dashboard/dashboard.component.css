@@ -53,6 +53,9 @@
     background-color: #6F717E;
     color: #fff;
 }
+.input-btn:hover{
+    background-color: #363B48
+}
 .user-cont{
     display: flex;
     align-items: center;
@@ -130,16 +133,28 @@ tr{
     padding: 10px 0;
 }
 .comment{
-    display: flex;
+    /* display: flex; */
     margin-bottom: 10px;
+    background-color: #6F717E;
+    padding: 10px;
+    border-radius: 10px;
 }
 .comment-avatar{
     margin: 5px
 }
 .com{
-    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
 }
 .commenter{
     margin: 5px;
     font-weight: bolder;
+}
+.comment-author-div{
+    display:flex;
+    align-items:center
+}
+.action-btn-div{
+    display:flex;
+    align-items:center
 }
