@@ -45,13 +45,13 @@
                 <mat-icon class="comment-avatar">account_circle</mat-icon> 
                 <div class="commenter">{{comments.name}} </div>
               </div>
-              <div class="action-btn-div">                
-                <mat-icon class="edit" (click)="comment(comments,'edit',post.id)">edit</mat-icon>
-                <mat-icon class="delete" (click)="comment(comments,'delete',post.id)">delete_outline</mat-icon>
-              </div>
+              <div class="divider-comment"><mat-divider></mat-divider></div>
+              {{comments.comment}}
             </div>            
-            <div class="divider-comment"><mat-divider></mat-divider></div>
-            {{comments.comment}}
+            <div class="action-btn-div">                
+              <mat-icon class="edit comment-icons" (click)="comment(comments,'edit',post.id)">edit</mat-icon>
+              <mat-icon class="delete comment-icons" (click)="comment(comments,'delete',post.id)">delete_outline</mat-icon>
+            </div>
           </div>
         </div>        
         <div class="user-cont">          
