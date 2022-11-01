@@ -36,10 +36,10 @@
         </div> <br>
         <tr>{{post.content}}</tr>
         <div class="divider-comment"><mat-divider></mat-divider></div>
-        <a (click)="comment('comments','add',post.id)">Comment</a>
+        <a (click)="comment('comments','add',post.id)" class="comment-btn">Comment</a>
         <div class="divider-comment"><mat-divider></mat-divider></div>
         <div *ngFor="let comments of commentsData;">
-          <div *ngIf="comments.post_id == post.id" class="comment">             
+          <div class="comment">             
             <div class="com">          
               <div class="comment-author-div">                
                 <mat-icon class="comment-avatar">account_circle</mat-icon> 
@@ -48,7 +48,7 @@
               <div class="divider-comment"><mat-divider></mat-divider></div>
               {{comments.comment}}
             </div>            
-            <div class="action-btn-div">                
+            <div class="action-btn-div" *ngIf="comments.commenter == localIdNumber">                
               <mat-icon class="edit comment-icons" (click)="comment(comments,'edit',post.id)">edit</mat-icon>
               <mat-icon class="delete comment-icons" (click)="comment(comments,'delete',post.id)">delete_outline</mat-icon>
             </div>

@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
   name = localStorage.getItem('name');
   localId = localStorage.getItem('id');
   postDataSource: MatTableDataSource<PostModel>;
+  localIdNumber = Number(this.localId)
 
   constructor(
     private loginService: UserService,
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    console.log(this.localId, 'localasdf sdf')
   }
 
   openDialog(method:string): void {
@@ -100,6 +102,7 @@ export class DashboardComponent implements OnInit {
         }
         this.postsData.push(dataSource);
       })
+      console.log('postssdfdsf', this.postsData)
     })    
     this.getComments();
   }
@@ -116,7 +119,7 @@ export class DashboardComponent implements OnInit {
         }
         this.commentsData.push(dataSource);
       })
-    })      
+    })  
   }
   comment(commentData:any,method:string,post_id:any): void {
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
