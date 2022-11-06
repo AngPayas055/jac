@@ -94,11 +94,13 @@ export class DashboardComponent implements OnInit {
     this.productService.getPost().subscribe(data => {
       this.postsData = [];
       data.map((value, index) => {
+        console.log(data)
         let dataSource = {
           id: value.id,
           user_id: value.user_id,
           content: value.content,
           name: value.name,
+          comments: value.comments
         }
         this.postsData.push(dataSource);
       })
@@ -118,6 +120,7 @@ export class DashboardComponent implements OnInit {
           name: value.name
         }
         this.commentsData.push(dataSource);
+        // console.log('commentsdataasdfasdf', this.commentsData)
       })
     })  
   }
