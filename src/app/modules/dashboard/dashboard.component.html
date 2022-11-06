@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div *ngFor="let post of postsData;" class="posts-cont">
+      <div *ngFor="let post of postsData;  let i = index" class="posts-cont">
         <div class="posts-header-cont">            
           <div class="author-cont">
             <mat-icon class="avatar">account_circle</mat-icon>{{post.name}}
@@ -38,19 +38,21 @@
         <div class="divider-comment"><mat-divider></mat-divider></div>
         <a (click)="comment('comments','add',post.id)" class="comment-btn">Comment</a>
         <div class="divider-comment"><mat-divider></mat-divider></div>
-        <div *ngFor="let comments of commentsData;">
+
+
+        <div *ngFor="let comment of post.comments; ">
           <div class="comment">             
             <div class="com">          
               <div class="comment-author-div">                
                 <mat-icon class="comment-avatar">account_circle</mat-icon> 
-                <div class="commenter">{{comments.name}} </div>
+                <div class="commenter">{{comment.commenter}}</div>
               </div>
               <div class="divider-comment"><mat-divider></mat-divider></div>
-              {{comments.comment}}
+              {{comment.comment}}
             </div>            
-            <div class="action-btn-div" *ngIf="comments.commenter == localIdNumber">                
-              <mat-icon class="edit comment-icons" (click)="comment(comments,'edit',post.id)">edit</mat-icon>
-              <mat-icon class="delete comment-icons" (click)="comment(comments,'delete',post.id)">delete_outline</mat-icon>
+            <div class="action-btn-div" *ngIf="comment.commenter == localIdNumber">                
+              <mat-icon class="edit comment-icons" (click)="comment(comment,'edit',post.id)">edit</mat-icon>
+              <mat-icon class="delete comment-icons" (click)="comment(comment,'delete',post.id)">delete_outline</mat-icon>
             </div>
           </div>
         </div>        
