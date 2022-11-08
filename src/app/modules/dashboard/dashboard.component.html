@@ -40,7 +40,7 @@
         <div class="divider-comment"><mat-divider></mat-divider></div>
 
 
-        <div *ngFor="let comment of post.comments; ">
+        <div *ngFor="let comment of post.comments; let index = index">
           <div class="comment">             
             <div class="com">          
               <div class="comment-author-div">                
@@ -50,9 +50,10 @@
               <div class="divider-comment"><mat-divider></mat-divider></div>
               {{comment.comment}}
             </div>            
-            <div class="action-btn-div" *ngIf="comment.commenter == localIdNumber">                
-              <mat-icon class="edit comment-icons" (click)="comment(comment,'edit',post.id)">edit</mat-icon>
-              <mat-icon class="delete comment-icons" (click)="comment(comment,'delete',post.id)">delete_outline</mat-icon>
+            <div class="action-btn-div" *ngIf="comment.commenter == localIdNumber"> 
+              test {{comment.id}}               
+              <mat-icon class="edit comment-icons" (click)="editComment(comment.id,comment.comment,'edit',post.id)">edit</mat-icon>              
+              <mat-icon class="delete comment-icons" (click)="editComment(comment.id,comment.comment,'delete',post.id)">delete_outline</mat-icon>
             </div>
           </div>
         </div>        

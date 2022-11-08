@@ -37,7 +37,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    console.log(this.localId, 'localasdf sdf')
   }
 
   openDialog(method:string): void {
@@ -94,7 +93,6 @@ export class DashboardComponent implements OnInit {
     this.productService.getPost().subscribe(data => {
       this.postsData = [];
       data.map((value, index) => {
-        console.log(data)
         let dataSource = {
           id: value.id,
           user_id: value.user_id,
@@ -104,7 +102,6 @@ export class DashboardComponent implements OnInit {
         }
         this.postsData.push(dataSource);
       })
-      console.log('postssdfdsf', this.postsData)
     })    
     this.getComments();
   }
@@ -120,27 +117,35 @@ export class DashboardComponent implements OnInit {
           name: value.name
         }
         this.commentsData.push(dataSource);
-        // console.log('commentsdataasdfasdf', this.commentsData)
       })
     })  
   }
   comment(commentData:any,method:string,post_id:any): void {
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
       width: '720px',
-      // data: {name: this.name, animal: this.animal},
       data: [commentData,method,post_id]
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.getComments();
-      // this.animal = result;
+    });
+  }
+  editComment(commentId:any,commentContent:string,method:string,post_id:any): void {
+    let commentDetails = [commentId,commentContent]
+    const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
+      width: '720px',
+      data: [commentDetails,method,post_id]
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getComments();
     });
   }
 }
 
-// 
-// addpost dialog
-
+////////////////////
+// addpost dialog //
+////////////////////
 @Component({
   selector: 'dashboard-addpost-dialog',
   templateUrl: 'dashboard-addpost-dialog.html',
