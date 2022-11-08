@@ -50,8 +50,7 @@
               <div class="divider-comment"><mat-divider></mat-divider></div>
               {{comment.comment}}
             </div>            
-            <div class="action-btn-div" *ngIf="comment.commenter == localIdNumber"> 
-              test {{comment.id}}               
+            <div class="action-btn-div" *ngIf="comment.commenter == localIdNumber">        
               <mat-icon class="edit comment-icons" (click)="editComment(comment.id,comment.comment,'edit',post.id)">edit</mat-icon>              
               <mat-icon class="delete comment-icons" (click)="editComment(comment.id,comment.comment,'delete',post.id)">delete_outline</mat-icon>
             </div>

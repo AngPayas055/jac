@@ -52,6 +52,7 @@ export class DashboardCommentDialogComponent implements OnInit {
     }else if(this.caseData[1]=='delete'){ 
       this.productService.deleteComment(this.commentDetails.id).subscribe( data =>{
       this.dialogRef.close()
+      return
       })         
     }
   }

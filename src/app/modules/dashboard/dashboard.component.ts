@@ -127,18 +127,19 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getComments();
+      this.getPosts();
     });
   }
   editComment(commentId:any,commentContent:string,method:string,post_id:any): void {
     let commentDetails = [commentId,commentContent]
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
       width: '720px',
-      data: [commentDetails,method,post_id]
+      data: [commentDetails,method,post_id],
+      disableClose: true  
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getComments();
+      this.getPosts();
     });
   }
 }
