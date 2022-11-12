@@ -30,6 +30,10 @@ export class DashboardCommentDialogComponent implements OnInit {
     this.checkMethod();
   }
   checkMethod(){
+    if(this.caseData[1]=='edit' || this.caseData[1]=='delete'){
+      this.commentDetails.id = this.caseData[0][0];
+      this.commentDetails.comment = this.caseData[0][1];
+    }
   }
   addComment(){
     if(this.caseData[1]=='add'){
@@ -48,6 +52,7 @@ export class DashboardCommentDialogComponent implements OnInit {
     }else if(this.caseData[1]=='delete'){ 
       this.productService.deleteComment(this.commentDetails.id).subscribe( data =>{
       this.dialogRef.close()
+      return
       })         
     }
   }

@@ -26,7 +26,8 @@ export class DashboardComponent implements OnInit {
   name = localStorage.getItem('name');
   localId = localStorage.getItem('id');
   postDataSource: MatTableDataSource<PostModel>;
-
+  localIdNumber = Number(this.localId)
+  usersList: any;  
   constructor(
     private loginService: UserService,
     public productService: ProductService,
@@ -37,6 +38,25 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
   }
+  async getUsersList() {
+    this.usersList = await (await this.productService.getUsers()).subscribe(data => {
+      data.map((value, index) => {
+        let obj = {
+          id: value.id,
+          name: value.name,
+        }
+        this.postsAuthor.push(obj);
+      })
+    });
+  }
+  setName(z: any){
+    let x: any = z;
+    for (let i = 0; i < this.postsAuthor.length; i++) {
+      if (z == this.postsAuthor[i].id) x = this.postsAuthor[i].name;
+      }
+      return x;
+    }
+  
 
   openDialog(method:string): void {
     const matDialogRef = this.dialog.open(DashboadAddpostDialog, {
@@ -97,6 +117,7 @@ export class DashboardComponent implements OnInit {
           user_id: value.user_id,
           content: value.content,
           name: value.name,
+          comments: value.comments
         }
         this.postsData.push(dataSource);
       })
@@ -116,25 +137,36 @@ export class DashboardComponent implements OnInit {
         }
         this.commentsData.push(dataSource);
       })
-    })      
+    })  
+    this.getUsersList()
   }
   comment(commentData:any,method:string,post_id:any): void {
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
       width: '720px',
-      // data: {name: this.name, animal: this.animal},
       data: [commentData,method,post_id]
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getComments();
-      // this.animal = result;
+      this.getPosts();
+    });
+  }
+  editComment(commentId:any,commentContent:string,method:string,post_id:any): void {
+    let commentDetails = [commentId,commentContent]
+    const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
+      width: '720px',
+      data: [commentDetails,method,post_id],
+      disableClose: true  
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getPosts();
     });
   }
 }
 
-// 
-// addpost dialog
-
+////////////////////
+// addpost dialog //
+////////////////////
 @Component({
   selector: 'dashboard-addpost-dialog',
   templateUrl: 'dashboard-addpost-dialog.html',

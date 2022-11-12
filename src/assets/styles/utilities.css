@@ -14,3 +14,5 @@ textarea{ color: #fff;}
 
 textarea::-webkit-input-placeholder {color: rgb(164, 162, 162);}
 
+.d-flex{display:flex}
+
