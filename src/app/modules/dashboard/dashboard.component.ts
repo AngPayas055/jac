@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   postDataSource: MatTableDataSource<PostModel>;
   localIdNumber = Number(this.localId)
   usersList: any;  
+  public isLoading: boolean = false;
   constructor(
     private loginService: UserService,
     public productService: ProductService,
@@ -39,6 +40,7 @@ export class DashboardComponent implements OnInit {
     this.getProducts();
   }
   async getUsersList() {
+    this.isLoading = true;
     this.usersList = await (await this.productService.getUsers()).subscribe(data => {
       data.map((value, index) => {
         let obj = {
@@ -46,6 +48,7 @@ export class DashboardComponent implements OnInit {
           name: value.name,
         }
         this.postsAuthor.push(obj);
+        this.isLoading = false;
       })
     });
   }
@@ -93,6 +96,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getProducts() {
+    this.isLoading = true;
     this.productService.getProducts().subscribe(data => {
       data.map((value, index) => {
         let obj = {
@@ -102,13 +106,15 @@ export class DashboardComponent implements OnInit {
           description: value.description,
           price: value.price,
         }
-        this.productData.push(obj);
+        this.productData.push(obj);        
+        this.isLoading = false;
       })
     });
     this.getPosts();
   }
 
   getPosts() {
+    this.isLoading = true;
     this.productService.getPost().subscribe(data => {
       this.postsData = [];
       data.map((value, index) => {
@@ -120,11 +126,13 @@ export class DashboardComponent implements OnInit {
           comments: value.comments
         }
         this.postsData.push(dataSource);
+        this.isLoading = false;
       })
     })    
     this.getComments();
   }
   getComments() {
+    this.isLoading = true;
     this.productService.getComments().subscribe(data => {
       this.commentsData = [];
       data.map((value, index) => {
@@ -136,9 +144,11 @@ export class DashboardComponent implements OnInit {
           name: value.name
         }
         this.commentsData.push(dataSource);
+        this.isLoading = false;
       })
     })  
     this.getUsersList()
+    
   }
   comment(commentData:any,method:string,post_id:any): void {
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {

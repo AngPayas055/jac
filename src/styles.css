@@ -3,6 +3,7 @@
 @import 'assets/styles/colors.css';
 @import 'assets/styles/font.css';
 @import 'assets/styles/utilities';
+@import 'assets/styles/loader';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 @import '~ngx-toastr/toastr';
 html, body { height: 100%; }
