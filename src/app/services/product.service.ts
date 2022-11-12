@@ -124,4 +124,14 @@ export class ProductService {
     })
   }
 
+  public getUsers(): Observable<any> {    
+    let options: any = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return new Observable<any>( (observer) => {
+        this.http.get(this.apiURI + "/users", options).subscribe( response => {
+            observer.next(response);
+            observer.complete();
+        })
+    })
+  }
+
 }

@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   localId = localStorage.getItem('id');
   postDataSource: MatTableDataSource<PostModel>;
   localIdNumber = Number(this.localId)
-
+  usersList: any;  
   constructor(
     private loginService: UserService,
     public productService: ProductService,
@@ -38,6 +38,25 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
   }
+  async getUsersList() {
+    this.usersList = await (await this.productService.getUsers()).subscribe(data => {
+      data.map((value, index) => {
+        let obj = {
+          id: value.id,
+          name: value.name,
+        }
+        this.postsAuthor.push(obj);
+      })
+    });
+  }
+  setName(z: any){
+    let x: any = z;
+    for (let i = 0; i < this.postsAuthor.length; i++) {
+      if (z == this.postsAuthor[i].id) x = this.postsAuthor[i].name;
+      }
+      return x;
+    }
+  
 
   openDialog(method:string): void {
     const matDialogRef = this.dialog.open(DashboadAddpostDialog, {
@@ -119,6 +138,7 @@ export class DashboardComponent implements OnInit {
         this.commentsData.push(dataSource);
       })
     })  
+    this.getUsersList()
   }
   comment(commentData:any,method:string,post_id:any): void {
     const dialogRef = this.dialog.open(DashboardCommentDialogComponent, {
