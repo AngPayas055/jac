@@ -146,12 +146,16 @@ tr{
 .comment-avatar{
     margin: 5px
 }
+.comments-texts{
+    word-wrap: break-word;
+}
 .com{
     /* display: flex; */
     /* justify-content: space-between; */
     background-color: #6F717E;
     padding: 10px;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 .commenter{
     margin: 5px;
