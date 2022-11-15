@@ -22,7 +22,6 @@
 }
 .logo-name{
     font-size: 28px;
-    color: #fff;
 }
 nav{
     max-width: 302px;
@@ -33,7 +32,7 @@ nav{
 }
 .nav-link{
     text-decoration: none;
-    color: #D8D8DA;
+    color: var(--font-nav-link);
     margin: 5px 10px;
 }
 .links-div{
@@ -41,7 +40,7 @@ nav{
     align-items:center;
 }
 .nav-link:hover{
-    color: #fff;
+    color: var(--font-primary-color);
 }
 .logo-div{
     display: flex;

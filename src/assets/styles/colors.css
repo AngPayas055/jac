@@ -1,15 +1,15 @@
 /* backgrounds */
-.bg-black{background-color: #333333}
-.bg-dark{background-color: #292C38}
-.bg-tint{background-color: #363B48}
-.bg-light{background-color: #ffffff}
-.bg-green{background-color: #2C9986}
-.bg-grey{background-color: #6D7280;}
+/* .bg-black{background-color: #333333} */
+.bg-dark{background-color: var(--primary-color)}
+.bg-tint{background-color: var(--secondary-color)}
+.bg-light{background-color: var(--font-primary-color)}
+.bg-green{background-color: var(--btn-primary)}
+/* .bg-grey{background-color: #6D7280;} */
 
 /* colors */
-.black{color: #333333;}
-.dark{color: #292C38}
-.tint{color: #363B48}
-.light{color: #ffffff}
-.green{color: #2C9986}
-.grey{color: #6D7280}
+/* .black{color: #333333;} */
+.dark{color: var(--primary-color)}
+.tint{color: var(--secondary-color)}
+.light{color: var(--font-primary-color)}
+.green{color: var(--btn-primary)}
+/* .grey{color: #6D7280} */
