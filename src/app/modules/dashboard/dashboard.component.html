@@ -1,3 +1,5 @@
+
+<div class="loader" *ngIf="isLoading"></div>
 <div class="container">
     <table class="table table-striped">
       <div class="posts-cont">
@@ -55,7 +57,9 @@
                 </div>
               </div>
               <div class="divider-comment"><mat-divider></mat-divider></div>
-              {{comment.comment}}   
+              <div class="comments-texts">                
+                <p class="comments-texts">{{comment.comment}}</p>  
+              </div>  
             </div>   
           </div>
         </div>        

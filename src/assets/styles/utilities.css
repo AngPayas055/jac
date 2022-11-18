@@ -3,6 +3,10 @@
 /* margin */
 .mt-30{margin: 30px;}
 
+.mt-10vh{margin-top: 10vh;}
+.mt-5vh{margin-top: 5vh;}
+.mb-5vh{margin-bottom: 5vh;}
+
 /* line height */
 .lh-50{line-height: 50px}
 
@@ -15,4 +19,6 @@ textarea{ color: #fff;}
 textarea::-webkit-input-placeholder {color: rgb(164, 162, 162);}
 
 .d-flex{display:flex}
+
+.text-secondary{color: var(--font-secondary-color)}
 

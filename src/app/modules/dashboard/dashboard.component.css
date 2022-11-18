@@ -11,7 +11,7 @@
     width: calc(100%-30px);
     padding: 15px;
     margin: 15px 0;
-    background-color: #484F61;
+    background-color: var(--primary-color);
     border-radius: 10px;
 }
 .posts-cont tr{
@@ -146,12 +146,16 @@ tr{
 .comment-avatar{
     margin: 5px
 }
+.comments-texts{
+    word-wrap: break-word;
+}
 .com{
     /* display: flex; */
     /* justify-content: space-between; */
-    background-color: #6F717E;
+    background-color: var(--secondary-color);
     padding: 10px;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 .commenter{
     margin: 5px;

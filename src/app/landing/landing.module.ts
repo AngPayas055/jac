@@ -9,6 +9,7 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 // Flex Layout
 // import { FlexLayoutModule } from '@angular/flex-layout';
@@ -28,6 +29,7 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatButtonToggleModule
     // FlexLayoutModule
   ]
 })

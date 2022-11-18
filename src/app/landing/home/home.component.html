@@ -1,23 +1,37 @@
-<div class="nav_container bg-dark">
-    <div class="header-container">
-        <div class="logo-div">
-            <mat-icon color="accent" class="logo-icon">donut_small</mat-icon>
-            <div class="logo-name">JAC</div>
-        </div>
-        <nav>
-            <div class="links-div">
-                <a href="" class="nav-link">MOBILE</a>
-                <a href="" class="nav-link">FEATURES</a>
+<div [class.light-theme]="isLightTheme">
+    <div class="nav_container bg-dark">
+        <div class="header-container">
+            <div class="logo-div">
+                <mat-icon color="accent" class="logo-icon">donut_small</mat-icon>
+                <div class="logo-name">JAC</div>
             </div>
-            <a href="" class="nav-link btn btn-medium bg-green" routerLink="/security/login">LOG IN</a>
-        </nav>
+            <nav>
+                <div class="links-div">
+                    <a href="" class="nav-link">MOBILE</a>
+                    <a href="" class="nav-link">FEATURES</a>
+                </div>
+                
+                <button class="nav-link-btn btn btn-medium bg-green" routerLink="/security/register">SIGN UP</button>
+                <div class="theme" (click)=" toggleField()">
+                    <mat-icon class="theme-icon">wb_sunny</mat-icon>
+                </div>
+            </nav>
+        </div>
     </div>
+    <div class="fullpage-cont" [class.light-theme]="isLightTheme">
+        <h1 class="text-center mt-10vh">A simple Social Media web application developed by JMendiola</h1> 
+        <p class="text-center mb-5vh">The technologies used to develop this app are Angular for the frontend and Laravel for the Backend</p>
+        <div>
+        </div>
+
+        <div class="btns-cont">            
+            <button class="nav-link-btn btn btn-medium bg-green" routerLink="/security/register">SIGN UP FOR FREE</button>
+            <button class="nav-link-btn btn btn-medium bg-grey" routerLink="/security/login">LOG IN</button>
+        </div>
+    </div>
+    <!-- <button class="btn bg-green">test button</button>
+    <button class="btn ">SIGN UP FOR FREE</button>
+    <h1>test h1 tag</h1>
+    <p>test p tag</p> -->
+    <!-- <a href="#" class="btn bg-green">test a</a> -->
 </div>
-<div class="fullpage-cont">
-    <h1>get details test</h1> 
-</div>
-<!-- <button class="btn bg-green">test button</button>
-<button class="btn ">SIGN UP FOR FREE</button>
-<h1>test h1 tag</h1>
-<p>test p tag</p> -->
-<!-- <a href="#" class="btn bg-green">test a</a> -->
