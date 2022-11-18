@@ -10,12 +10,13 @@ html, body { height: 100%; }
 body { margin: 0; font-family: 'Montserrat', sans-serif; background-color:var(--secondary-color); color: var(--font-primary-color);}
 p{color:var(--font-primary-color)}
 
-:root{
+body{
 	--primary-color:#292C38;
 	--secondary-color:#363B48;
 	--font-primary-color:#fff;
 	--font-nav-link:#848999;
 	--btn-primary:#2C9986;
+	--btn-secondary:#6F717E;
 
     /* light mode */
 	/* --primary-color:#F4DFD0;
@@ -24,6 +25,16 @@ p{color:var(--font-primary-color)}
 	--font-secondary-color:#fff;
 	--font-nav-link:#363B48;
 	--btn-primary:#2C9986; */
+}
+
+body.light-theme{
+	--primary-color:#F4DFD0;
+	--secondary-color:#FDEFEF;
+	--font-primary-color:#292C38;
+	--font-secondary-color:#fff;
+	--font-nav-link:#363B48;
+	--btn-primary:#2C9986;
+
 }
 
 mat-dialog-container {

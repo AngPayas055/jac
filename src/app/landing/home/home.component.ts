@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  
+  isLightTheme: boolean = false;
+  myFlagForSlideToggle: boolean = true;
+  theme: any = localStorage.getItem('app-theme');
   constructor(    
   ) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {   
   }
-
+  toggleField(){
+    document.body.classList.toggle('light-theme')
+  }
 }

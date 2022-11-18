@@ -3,7 +3,12 @@
         <div class="account">
             <mat-icon class="avatar">account_circle</mat-icon><h3 class="greetings">{{name}}</h3>
         </div>
-        <mat-icon class="logout" (click)="logout()">power_settings_new</mat-icon>
+        <div class="icons-cont">    
+            <mat-icon class="logout" (click)="logout()">power_settings_new</mat-icon>        
+            <div class="theme" (click)=" toggleField()">
+                <mat-icon class="theme-icon">wb_sunny</mat-icon>
+            </div>
+        </div>
         <!-- <button  class="btn bg-green">LOG OUT</button> -->
     </div>
 </div>

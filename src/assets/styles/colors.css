@@ -4,6 +4,7 @@
 .bg-tint{background-color: var(--secondary-color)}
 .bg-light{background-color: var(--font-primary-color)}
 .bg-green{background-color: var(--btn-primary)}
+.bg-grey{background-color: var(--btn-secondary)}
 /* .bg-grey{background-color: #6D7280;} */
 
 /* colors */

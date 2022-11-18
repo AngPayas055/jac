@@ -11,6 +11,7 @@ import { MatSnackBarModule  } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 // import { MatIconModule } from '@angular/material/icon';
 // import { LandingComponent } from './landing/landing.component';
 // import { HomeComponent } from './landing/home/home.component'; 
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     MatDividerModule,
     MatDialogModule,
     FormsModule,
+    MatButtonToggleModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',

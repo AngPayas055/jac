@@ -18,6 +18,9 @@ export class ModulesComponent implements OnInit {
   
   productData: ProductModel[] = [];
   name = localStorage.getItem('name');
+  toggleField(){
+    document.body.classList.toggle('light-theme')
+  }
 
   logout() {
     this.loginService.logout().subscribe(data=>{
