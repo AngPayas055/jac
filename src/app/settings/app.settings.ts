@@ -1,4 +1,4 @@
-import { environment } from "../../environments/environment" 
+import { environment } from "../../environments/environment.prod" 
 
 export class AppSettings {
     public env: string = environment.deployment_target;
