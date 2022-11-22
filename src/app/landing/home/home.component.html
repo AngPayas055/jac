@@ -1,9 +1,9 @@
-<div [class.light-theme]="isLightTheme">
+<div [class.light-theme]="isLightTheme" class="first-section">
     <div class="nav_container bg-dark">
         <div class="header-container">
             <div class="logo-div">
-                <mat-icon color="accent" class="logo-icon">donut_small</mat-icon>
-                <div class="logo-name">JAC</div>
+                <!-- <mat-icon color="accent" class="logo-icon">donut_small</mat-icon> -->
+                <div class="logo-name">&lt;/JAC&gt;</div>
             </div>
             <nav>
                 <div class="links-div">
@@ -11,7 +11,7 @@
                     <a href="" class="nav-link">FEATURES</a>
                 </div>
                 
-                <button class="nav-link-btn btn btn-medium bg-green" routerLink="/security/register">SIGN UP</button>
+                <button class="s-up nav-link-btn btn btn-medium bg-green" routerLink="/security/register">SIGN UP</button>
                 <div class="theme" (click)=" toggleField()">
                     <mat-icon class="theme-icon">wb_sunny</mat-icon>
                 </div>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="fullpage-cont" [class.light-theme]="isLightTheme">
-        <h1 class="text-center mt-10vh">A simple Social Media web application developed by JMendiola</h1> 
+        <h1 class="text-center head-text">A simple Social Media web application developed by JMendiola</h1> 
         <p class="text-center mb-5vh">The technologies used to develop this app are Angular for the frontend and Laravel for the Backend</p>
         <div>
         </div>
@@ -29,9 +29,22 @@
             <button class="nav-link-btn btn btn-medium bg-grey" routerLink="/security/login">LOG IN</button>
         </div>
     </div>
-    <!-- <button class="btn bg-green">test button</button>
-    <button class="btn ">SIGN UP FOR FREE</button>
-    <h1>test h1 tag</h1>
-    <p>test p tag</p> -->
-    <!-- <a href="#" class="btn bg-green">test a</a> -->
+    <div class="container-wrapper">        
+        <div id="container">
+            <div id="dummy">test</div>
+            <div id="element">
+                <div class="input-bar"></div>
+                <div class="box-1"></div>
+                <div class="box-2"></div>
+                <div class="box-3"></div>
+                <div class="box-4"></div>
+                <div class="box-5"></div>
+                <div class="circle-1"></div>
+                <div class="box-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="second-section">
+
 </div>

@@ -17,7 +17,9 @@ body{
 	--font-nav-link:#848999;
 	--btn-primary:#2C9986;
 	--btn-secondary:#6F717E;
-
+	
+	--primary-opp-color:#FDEFEF;
+    --secondary-opp-color:#F4DFD0;
     /* light mode */
 	/* --primary-color:#F4DFD0;
 	--secondary-color:#FDEFEF;
@@ -34,7 +36,9 @@ body.light-theme{
 	--font-secondary-color:#fff;
 	--font-nav-link:#363B48;
 	--btn-primary:#2C9986;
-
+	
+	--primary-opp-color:#363B48;
+    --secondary-opp-color:#292C38;
 }
 
 mat-dialog-container {
