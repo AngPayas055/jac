@@ -20,6 +20,11 @@ export class ModulesComponent implements OnInit {
   name = localStorage.getItem('name');
   toggleField(){
     document.body.classList.toggle('light-theme')
+    if(localStorage.getItem('theme')=='dark'){      
+      localStorage.setItem('theme','light') 
+    }else{     
+      localStorage.setItem('theme','dark') 
+    }
   }
 
   logout() {

@@ -12,15 +12,15 @@
                 </div>
                 
                 <button class="s-up nav-link-btn btn btn-medium bg-green" routerLink="/security/register">SIGN UP</button>
-                <div class="theme" (click)=" toggleField()">
+                <div class="theme" (click)="toggleField()">
                     <mat-icon class="theme-icon">wb_sunny</mat-icon>
                 </div>
             </nav>
         </div>
     </div>
     <div class="fullpage-cont" [class.light-theme]="isLightTheme">
-        <h1 class="text-center head-text">A simple Social Media web application developed by JMendiola</h1> 
-        <p class="text-center mb-5vh">The technologies used to develop this app are Angular for the frontend and Laravel for the Backend</p>
+        <h1 class="text-center head-text">A simple Social Media app developed by JMendiola</h1> 
+        <p class="text-center mb-5vh">The technologies used to develop this app are Angular, Php Laravel and Mysql</p>
         <div>
         </div>
 
@@ -32,7 +32,8 @@
     <div class="container-wrapper">        
         <div id="container">
             <div id="dummy">test</div>
-            <div id="element">
+            <div id="element" (click)="toggleField()">
+                <div class="ribbon ribbon-top-right"><span>{{oppositTheme}} MODE</span></div>
                 <div class="input-bar"></div>
                 <div class="box-1"></div>
                 <div class="box-2"></div>
