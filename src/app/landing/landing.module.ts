@@ -17,6 +17,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 // Components
 import { LandingComponent } from './landing.component';
 import { HomeComponent } from './home/home.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDividerModule,
     // FlexLayoutModule
   ]
 })
