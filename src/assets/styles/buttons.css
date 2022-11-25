@@ -17,7 +17,8 @@
     -moz-transition: ease-out 0.5s;
 }
 .btn:hover{
-    filter: brightness(115%)
+    /* filter: brightness(115%); */
+    transform: scale(1.05)
 }
 .btn-medium{
     padding: 8px 20px;

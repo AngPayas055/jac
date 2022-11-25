@@ -5,6 +5,7 @@
 .bg-light{background-color: var(--font-primary-color)}
 .bg-green{background-color: var(--btn-primary)}
 .bg-grey{background-color: var(--btn-secondary)}
+
 /* .bg-grey{background-color: #6D7280;} */
 
 /* colors */
@@ -13,4 +14,10 @@
 .tint{color: var(--secondary-color)}
 .light{color: var(--font-primary-color)}
 .green{color: var(--btn-primary)}
+
+.opp-primary {color: var(--primary-opp-font)}
+.opp-secondary {color: var(--secondary-opp-font)}
 /* .grey{color: #6D7280} */
+
+.link{color: #2C9986;}
+.link:hover {font-size: large;}

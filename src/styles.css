@@ -20,13 +20,8 @@ body{
 	
 	--primary-opp-color:#FDEFEF;
     --secondary-opp-color:#F4DFD0;
-    /* light mode */
-	/* --primary-color:#F4DFD0;
-	--secondary-color:#FDEFEF;
-	--font-primary-color:#292C38;
-	--font-secondary-color:#fff;
-	--font-nav-link:#363B48;
-	--btn-primary:#2C9986; */
+	--primary-opp-font:#292C38;
+	--secondary-opp-font:#848999;
 }
 
 body.light-theme{
@@ -39,6 +34,8 @@ body.light-theme{
 	
 	--primary-opp-color:#363B48;
     --secondary-opp-color:#292C38;
+	--primary-opp-font:#F4DFD0;
+	--secondary-opp-font:#FDEFEF;
 }
 
 mat-dialog-container {
